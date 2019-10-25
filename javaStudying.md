@@ -1,0 +1,62 @@
+## day01
+
+### 1、JDK,JRE,JVM之间的关系，以及JDK,JRE包含的主要结构有什么
+
+* JDK(java develoment kit)，Java开发工具包。JDK是整个Java的核心，包括了Java运行环境JRE，Java开发工具(javac.exe/java.exe/javadoc.exe等)和Java基础的类库(java API)。JDK有3个版本，J2SE,J2EE,J2ME。我们常用JDK来☞Java API，它是Java的应用程序接口，前辈写好的Java Class，包括重要的语言结构以及基本图形，网络和文件IO等，调用这些Class，可以作为自己开发的基础。
+* JRE(java runtime enviroment)，Java运行时环境，也就是Java平台，所有的Java程序都要在JRE下才能运行，JRE包含JVM标准实现以及Java核心类库。它不是开发环境，没有任何开发工具。
+
+* JVM(java virtual machine)，Java虚拟机，虚构出来的计算机，JRE的一部分，只认识**.java**文件。通过在实际的计算机上仿真各种计算机功能来实现的。JVM有自己完善的硬件架构，如处理器、堆栈、寄存器等，还具有相应的指令系统。JVM 的主要工作是解释自己的指令集（即字节码）并映射到本地的 CPU 的指令集或 OS 的系统调用。Java语言是跨平台运行的，其实就是不同的操作系统，使用不同的JVM映射规则，让其与操作系统无关，完成了跨平台性。JVM是能够跨平台的核心。
+
+### 2、为甚么要配置path变量，如何配置？
+
+* 配置环境变量的目的是为了方便在控制台编译和运行java程序，不必进入到java的程序目录（安装目录）里面去运行。这样你放在任何目录下（比如桌面）的java程序文件都可以编译运行，而不是必须把这个程序文件放在java.exe和javac.exe所在的目录下。这样就会方便很多！在执行java.exe命令时，控制台会首先在当前目录找java.exe程序，所以你的java程序文件如果恰好就在java.exe所在的目录下就可以运行成功，如果没在，那么控制台就去path变量中指定的路径去找，找到就执行找不到就不执行。所以配置一下之后就会方便许多！让你在别的目录下的java程序文件也可以通过控制台编译运行！
+
+* JAVA_HOME ->为JDK的安装目录，如：F:\JAVA\jdk1.6.0_04
+  CLASSPATH ->到哪里找需要执行的.class文件，如: .;%JAVA_HOME%\lib;前面是一个点[.]再加一个分号[;]再以分号结束[;]为什么要加点[.]在编译java文件时，如javac xxx.java 即会在当前目录下生成xxx.class文件,然后再用java xxx执行，系统会在当前目录下找xxx.class文件，所以要加点，代表是在当前目录下找class文件来执行。
+  path ->javac.exe的执行程序路径，如：%JAVA_HOME%\bin;开始菜单->运行->cmd，在控制台里输入regedit,回车后看到注册表出来了！其过程是当输入regedit时候，系统会去系统环境变量里找这个程序的可执行文件路径。打开系统环境变量的设置地方，会看到系统变量windir的值为%SystemRoot%(其实也就是c:\WINDOWS若系统装在c盘的话),我们再打开c:\WINDOWS，可以找到一个叫regedit.exe的程序！
+  设置系统变量的目的：为了使系统可以找到程序的运行路径！
+  在设置环境变量path时候，之所以要选择C:\Java\jdk1.6.0\bin（JDK的安装目录）的原因呢？打开该目录，发现里面全是一些可执行文件，其中有我们最熟悉的javac.exe,java.exe等等。是啊，之所以要选择bin是因为当我们在编译程序的时候，在控制台输入javac Hello.java是，系统要去系统环境变量下面找javac.exe的执行程序路径。
+
+### 3、常用几个行命令？
+
+dir,md,rd,cd,cd ..,cd \.,del
+
+### 4、程序输出
+
+### 5、编译和运行上述代码的指令
+
+javac Name.java
+
+java Name
+
+
+
+### day02
+
+### 1、标识符命名规则
+
+不能使用关键字、保留字；字母，下划线，$开头，可以由字母、下划线、$、数字组成
+
+### 2、标识符命名规范
+
+包名：xxyyz
+
+类名、接口名：XxYyZz
+
+变量名、方法名：xxxYyyZzz
+
+常量名：xxx_yyy_zzz
+
+### 3、Java数据类型，基本数据类型，占用内存空间
+
+基本数据类型：byte,char,short,int,long,float,double,boolean;
+
+引用类型：类、接口、数组
+
+### 4、数据类型之间自动提升的运算规则
+
+byte、short、char->int ->long->float->double;
+
+### 5、强制转换使用规则和强转可能出现的问题
+
+使用强制转换符()
