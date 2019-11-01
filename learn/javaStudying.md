@@ -111,3 +111,10 @@ int:0;float:0.0;char:0或'\u0000',不是'0';boolean:false;引用：null
 
 对于int[] [] arr=new int[3] [ ];外层元素初始值是null,内层不能调用
 
+### 10.数组异常
+
+越界；空指针
+
+### 11.Array工具类
+
+equals;toString;fill;sort等等																																					
